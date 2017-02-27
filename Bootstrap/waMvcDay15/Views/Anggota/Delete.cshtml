@@ -1,0 +1,146 @@
+﻿@model perpustakaan.ViewModel.MstAnggotaViewModel
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>MstAnggotaViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeAnggota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeAnggota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alamat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alamat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDProvinsi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDProvinsi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKecamatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKecamatan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDKelurahan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDKelurahan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoTelepon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoTelepon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasaBerlakuKartu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasaBerlakuKartu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasaBerlakuAnggota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasaBerlakuAnggota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ModifiedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ModifiedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoginID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoginID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

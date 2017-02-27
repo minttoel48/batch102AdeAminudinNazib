@@ -1,0 +1,17 @@
+﻿@model perpustakaan.ViewModel.MstBukuViewModel
+<tr>
+    <td>
+        @Html.DisplayFor(x => Model.Kode)
+    </td>
+    <td>
+        @Html.DisplayFor(y => Model.JudulBuku)
+    </td>
+    <td>
+        @Html.DisplayFor(z => Model.Pengarang)
+    </td>
+    <td>
+        <button class="btn btn-danger btn-hapus">Hapus
+            <span class="glyphicon glyphicon-trash"></span>
+        </button>
+    </td>
+</tr>

@@ -1,0 +1,271 @@
+﻿@model perpustakaan.ViewModel.TrxPinjamanHeaderViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">        
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoRegistrasi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoRegistrasi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoRegistrasi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoReferensi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoReferensi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoReferensi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nama, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Nama, new { htmlAttributes = new { @class = "form-control" } })
+                    <div class="input-group-btn">
+                        <button type="button" class="btn  btn-cari-anggota  btn-primary">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Nama, "", new { @class = "text-danger" })
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.IDAnggota, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IDAnggota, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IDAnggota, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TanggalPinjam, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TanggalPinjam, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TanggalPinjam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TanggalKembali, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TanggalKembali, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TanggalKembali, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.CreateedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateedOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateedOn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CreateBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CreateBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModifiedOn, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ModifiedOn, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ModifiedOn, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ModifiedBy, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ModifiedBy, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ModifiedBy, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <div class="input-group-btn">
+                    <button type="button" class="btn  btn-add-buku  btn-primary">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <table id="tbl-buku" class="table table-responsive table-bordered">
+                    <thead>
+                        <tr>
+                            <td>Kode</td>
+                            <td>Judul</td>
+                            <td>Pengarang</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody id="Daftar-Buku">
+                    </tbody>
+                </table>
+            </div>            
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+
+            <button type="button" id="btn-save" class="btn btn-success">
+
+            </button>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Create Data</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+
+<script>
+    $(".btn-cari-anggota").click(function () {
+        //alert("asd");
+        $.ajax({
+            url: '@Url.Action("ListAnggota","Ajax")',
+            Type: 'get',
+            success: function (result) {
+                $(".modal-body").html(result);
+                $("#myModal").modal("show");
+            }
+        });
+    });
+
+    $(".btn-add-buku").click(function () {
+        //alert("asd");
+        $.ajax({
+            url: '@Url.Action("GetBuku","Ajax")',
+            Type: 'get',
+            success: function (result) {
+                $(".modal-body").html(result);
+                $("#myModal").modal("show");
+            }
+        });
+    });
+
+    $(".modal-body").on("click", ".btn-ambil", function (e) {
+        //alert("tesss");
+        e.preventDefault();
+        var id = $(this).attr("data-id");
+        var nama = $(this).attr("data-nama");
+        $("#IDAnggota").val(id);
+        $("#Nama").val(nama);
+        $("#myModal").modal("hide");
+        document.getElementById('Nama').disabled = true;
+        document.getElementById('IDAnggota').disabled = true;
+    });
+
+    $(".modal-body").on("click", "#ambil", function (e) {
+        e.preventDefault();
+        var bId = $(this).attr("data-id");
+        var nbuku = $(this).attr("data-nama");
+        $.ajax({
+            url: '@Url.Action("GetBukuByID","Ajax")',
+            data: {id:bId},
+            type: 'get',
+            success: function (result) {
+                //alert(nbuku);
+                $("#Daftar-Buku").append(result);
+                $("#myModal").modal("hide");
+            }
+        });
+    });
+
+    $("#Daftar-Buku").on("click", ".btn-hapus", function (e) {
+        e.preventDefault();
+        $(this).parent().parent().remove();
+    });
+
+    $("#btn-save").click(function () {
+        var pHeader = {
+            ID: null,
+            IDAnggota: $("#IDAnggota").val(),
+            NoRegistrasi: $("#NoRegistrasi").val(),
+            NoReferensi: $("#NoReferensi").val(),            
+            TanggalPinjam: $("#TanggalPinjam").val(),
+            TanggalKembali: $("#TanggalKembali").val()
+        };
+        var listBuku = [];
+        var attrBuku = {
+            ID: null,
+            KodeBuku: null,
+            JudulBuku: null,
+            Pengarang: null
+        }
+
+        var rowCount = $('#Daftar-Buku tr').length;
+        if (rowCount > 0) {
+            $.each($('#Daftar-Buku').find("tr"), function (i, val) {
+                var kdBuku = "";
+                var jdBuku = "";
+                var pBuku = "";
+            });
+        }
+
+        $.ajax({
+            url: '@Url.Action("SimpanPeminjaman","Ajax")',
+            data:JSON.stringify(pinjamanHeader),
+            type: 'post',
+            contentType:'application/json; charset=utf-8',
+            success: function (result) {
+
+            }
+        });
+    });
+</script>
